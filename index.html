@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Patient Snapshot</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/fhirclient/build/fhir-client.js"></script>
+</head>
+<body class="loading">
+  <header class="app-header">
+    <div class="header-inner">
+      <div class="brand">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12h4l3-8 4 16 3-8h4"/></svg>
+        <span>Patient Snapshot</span>
+      </div>
+      <div class="patient">
+        <div id="patient-avatar" class="avatar" aria-hidden="true"></div>
+        <div>
+          <h1 id="patient-name"><span class="skeleton skeleton-title"></span></h1>
+          <div id="patient-info" class="chips">
+            <span class="skeleton skeleton-chip"></span>
+            <span class="skeleton skeleton-chip"></span>
+            <span class="skeleton skeleton-chip"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <p id="status" class="status" role="status">Loading patient data…</p>
+
+    <div class="grid">
+      <section class="card card-vitals">
+        <div class="card-header">
+          <span class="card-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 1 0-7.8 7.8L12 21.2l8.8-8.8a5.5 5.5 0 0 0 0-7.8z"/></svg>
+          </span>
+          <h2>Latest Vitals</h2>
+          <span id="vitals-count" class="count"></span>
+        </div>
+        <table class="vitals-table">
+          <thead>
+            <tr><th>Vital</th><th>Value</th><th>Date</th></tr>
+          </thead>
+          <tbody id="vitals-body">
+            <tr><td colspan="3"><span class="skeleton skeleton-line"></span></td></tr>
+            <tr><td colspan="3"><span class="skeleton skeleton-line"></span></td></tr>
+            <tr><td colspan="3"><span class="skeleton skeleton-line"></span></td></tr>
+            <tr><td colspan="3"><span class="skeleton skeleton-line"></span></td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="card card-conditions">
+        <div class="card-header">
+          <span class="card-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M9 3h6v4h4v6h-4v8H9v-8H5V7h4z"/></svg>
+          </span>
+          <h2>Active Conditions</h2>
+          <span id="conditions-count" class="count"></span>
+        </div>
+        <ul id="conditions-list" class="item-list">
+          <li><span class="skeleton skeleton-line"></span></li>
+          <li><span class="skeleton skeleton-line"></span></li>
+          <li><span class="skeleton skeleton-line"></span></li>
+        </ul>
+      </section>
+
+      <section class="card card-medications">
+        <div class="card-header">
+          <span class="card-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><rect x="2.5" y="8" width="19" height="8" rx="4" transform="rotate(-45 12 12)"/><path d="M8.5 8.5l7 7"/></svg>
+          </span>
+          <h2>Active Medications</h2>
+          <span id="medications-count" class="count"></span>
+        </div>
+        <ul id="medications-list" class="item-list">
+          <li><span class="skeleton skeleton-line"></span></li>
+          <li><span class="skeleton skeleton-line"></span></li>
+          <li><span class="skeleton skeleton-line"></span></li>
+        </ul>
+      </section>
+    </div>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

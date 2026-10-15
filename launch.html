@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Patient Snapshot – Launching…</title>
+  <script src="https://cdn.jsdelivr.net/npm/fhirclient/build/fhir-client.js"></script>
+</head>
+<body>
+  <p>Launching Patient Snapshot…</p>
+  <script>
+    FHIR.oauth2.authorize({
+      clientId: "my_app",
+      redirectUri: "index.html",
+      scope: "launch openid fhirUser patient/Patient.rs patient/Observation.rs patient/Condition.rs patient/MedicationRequest.rs"
+    }).catch(function (err) {
+      console.error(err);
+      document.body.textContent = "Launch failed: " + (err && err.message ? err.message : err);
+    });
+  </script>
+</body>
+</html>
