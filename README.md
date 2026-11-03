@@ -113,5 +113,4 @@ launch openid fhirUser patient/Patient.rs patient/Observation.rs patient/Conditi
 ## Troubleshooting
 
 - **"No SMART session found"**: the page was opened directly, or in a new tab. Start it again from the launcher; the session lives in the tab that was launched.
-- **Changes don't appear**: the server already disables caching, so reload the page and launch again. A launch is needed after every reload that loses the session.
 - **Port 8091 already in use**: change the port in `package.json` and in the App Launch URL, as described under Configuration.
